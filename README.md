@@ -28,14 +28,14 @@ Deliverable Requirements, Code Examples, Compare Stock Performance and Timestamp
 
 Created a tickerIndex variable and set it equal to zero before iterating over all the rows. Will use this tickerIndex to access the correct index across the four different arrays on VBA Code: the tickers array and the three output arrays created on next requierement.
 
-![arrays](https://user-images.githubusercontent.com/111712209/189547263-b95842b1-226d-4bab-97c0-6a2d6b1a987d.png)
+![arrays](https://user-images.githubusercontent.com/111712209/189548460-a254abec-fe3f-472a-b98c-dd0cc2eb8154.png)
 
 
 2. Arrays are created for tickers, tickerVolumes, tickerStartingPrices, and tickerEndingPrices.
 
 Created three output arrays: tickerVolumes, tickerStartingPrices, and tickerEndingPrices. In our VBA code, the tickerVolumes array should be a Long data type. But in our VBA code the tickerStartingPrices and tickerEndingPrices arrays should be a Single data type.
 
-![tickerVolumeStartingPriceEndingPrice](https://user-images.githubusercontent.com/111712209/189547425-6984c055-a58e-4d03-96ce-70fb2948262c.png)
+![tickerVolumeStartingPriceEndingPrice](https://user-images.githubusercontent.com/111712209/189548472-456cce3b-c7e1-4e91-8154-b77d51bc64e8.png)
 
 
 3. The tickerIndex is used to access the stock ticker index for the tickers, tickerVolumes, tickerStartingPrices, and tickerEndingPrices arrays.
@@ -88,12 +88,13 @@ Below our Final VBA Analysis PNGs,
 
 Final VBA Analysis 2017
 
-![VBA_Challenge_2017](https://user-images.githubusercontent.com/111712209/189547709-f2366287-4a62-472e-9bac-de8aaf55751b.png)
+![VBA_Challenge_2017](https://user-images.githubusercontent.com/111712209/189548504-1a537928-a6b8-4580-832c-66c2028aa7cc.png)
+
 
 
 Final VBA Analysis 2018
 
-![VBA_Challenge_2018](https://user-images.githubusercontent.com/111712209/189547688-dd3bd2a4-5021-42e4-acd4-95ee5ace6000.png)
+![VBA_Challenge_2018](https://user-images.githubusercontent.com/111712209/189548521-868ff94e-ffef-4636-86fe-45b63b804588.png)
 
 
 8. The pop-up messages showing the elapsed run time for the script are saved as VBA_Challenge_2017.png and VBA_Challenge_2018.png
