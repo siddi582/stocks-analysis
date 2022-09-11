@@ -39,48 +39,69 @@ Sub AllStocksAnalysisRefactored()
     RowCount = Cells(Rows.Count, "A").End(xlUp).Row
     
     '1a) Create a ticker Index
-    
-
-    '1b) Create three output arrays   
-    
-    
-    ''2a) Create a for loop to initialize the tickerVolumes to zero. 
-    
+   For i = 0 To 11
+       tickerIndex = tickers(i)
+       
+       
+    '1b) Create three output arrays
+    Dim tickerVolumes As Long
+    Dim tickerStartingPrices As Single, tickerEndingPrices As Single
+       
+       
+    ''2a) Create a for loop to initialize the tickerVolumes to zero.
+    'If the next row’s ticker doesn’t match, increase the tickerIndex.
+       Worksheets(yearValue).Activate
+       tickerVolumes = 0
+       
+       ''2b) Loop over all the rows in the spreadsheet.
+       For j = 2 To RowCount
+              
+           ' If the next row’s ticker doesn’t match, increase the tickerIndex.
+           If Cells(j, 1).Value = tickerIndex Then
+           
+              '3a) Increase volume for current ticker
+              tickerVolumes = tickerVolumes + Cells(j, 8).Value
         
-    ''2b) Loop over all the rows in the spreadsheet. 
-    For i = 2 To RowCount
-    
-        '3a) Increase volume for current ticker
-        
-        
+           End If
+           
+           
         '3b) Check if the current row is the first row with the selected tickerIndex.
         'If  Then
-            
-            
-            
-        'End If
-        
+           If Cells(j - 1, 1).Value <> tickerIndex And Cells(j, 1).Value = tickerIndex Then
+
+               tickerStartingPrices = Cells(j, 6).Value
+               
+          'End If
+           End If
+
         '3c) check if the current row is the last row with the selected ticker
-         'If the next row’s ticker doesn’t match, increase the tickerIndex.
         'If  Then
-            
+           If Cells(j + 1, 1).Value <> tickerIndex And Cells(j, 1).Value = tickerIndex Then
+
+               tickerEndingPrices = Cells(j, 6).Value
+               
+          'End If
+           End If
+           
+       Next j
+       
+    '4) Loop through your arrays to output the Ticker, Total Daily Volume, and Return.
+
+           Worksheets("All Stocks Analysis").Activate
+           
+           Cells(4 + i, 1).Value = tickerIndex
+           Cells(4 + i, 2).Value = tickerVolumes
+           Cells(4 + i, 3).Value = tickerEndingPrices / tickerStartingPrices - 1
+    
+            'With Range("C4:C15")
+                        '.NumberFormat = "0.0%"
+                        '.Value = .Value
+            'End With
             
 
-            '3d Increase the tickerIndex. 
-            
-            
-        'End If
-    
-    Next i
-    
-    '4) Loop through your arrays to output the Ticker, Total Daily Volume, and Return.
-    For i = 0 To 11
-        
-        Worksheets("All Stocks Analysis").Activate
-        
-        
-    Next i
-    
+   Next i
+ 
+   
     'Formatting
     Worksheets("All Stocks Analysis").Activate
     Range("A3:C3").Font.FontStyle = "Bold"
@@ -110,3 +131,4 @@ Sub AllStocksAnalysisRefactored()
     MsgBox "This code ran in " & (endTime - startTime) & " seconds for the year " & (yearValue)
 
 End Sub
+
